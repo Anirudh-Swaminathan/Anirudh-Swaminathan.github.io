@@ -56,8 +56,7 @@ for(var i=0; i<len; ++i){
 					prev = this;
 					isOpen = true;
 				}
-				else{
-				//this.innerHTML = this.getAttribute('data-inter');
+				else if(this.id != prev.id){
 					now = this;
 					isOpen = false;
 					susp = true;
@@ -75,6 +74,10 @@ for(var i=0; i<len; ++i){
 						susp = false;},800);
 					}
 				}
+				else{
+					alert('Please click a different tile from the one you just clicked');
+				}
+				
 				//alert('Hi You clicked '+this.id+"\nThe parents id is "+this.parentNode.id+'\n Hidden data is '+this.getAttribute('data-inter'));
 				//alert('isOpen is '+isOpen+'\n prev is '+prev+'\nNow is '+now+'\nsusp is now'+susp+'\nclick status is '+this.getAttribute('clicka'));
 			}
