@@ -35,7 +35,7 @@ for(var i=0; i<nr; ++i){
 		ele.setAttribute('id',id.toString());
 		ele.setAttribute('data-inter',arr[id-1].toString());
 		ele.setAttribute('clicka',true);
-		ele.innerHTML = 'X';
+		ele.innerHTML = '';
 	}
 }
 //onclick for the whole class
@@ -52,6 +52,7 @@ for(var i=0; i<len; ++i){
 			if(susp === false){
 				//alert('You clicked '+x[i].id+' Its parents id is '+x[i].parent.id+'\n innerHTML is '+x[i].innerHTML);
 				this.innerHTML = this.getAttribute('data-inter');
+				this.style.background = "blue";
 				if(!isOpen){
 					prev = this;
 					isOpen = true;
@@ -62,8 +63,12 @@ for(var i=0; i<len; ++i){
 					susp = true;
 					if(prev.innerHTML != now.innerHTML){
 						
-						setTimeout(function(){prev.innerHTML = 'X';
-						now.innerHTML = 'X'; susp = false;},800);
+						setTimeout(function(){prev.innerHTML = '';
+						now.innerHTML = ''; 
+						prev.style.background='url(spider.jpg) no-repeat';
+						prev.style.backgroundSize='cover';	
+						now.style.background='url(spider.jpg) no-repeat'; 
+						now.style.backgroundSize='cover'; susp = false;},800);
 					}
 					else{
 						//susp  = true;
