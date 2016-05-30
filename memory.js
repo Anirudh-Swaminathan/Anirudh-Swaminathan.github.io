@@ -20,7 +20,7 @@ for(var i=0; i<15; ++i){
 	arr[i] = arr[a];
 	arr[a] = x;
 }
-alert('Arr is '+arr);
+//alert('Arr is '+arr);
 for(var i=0; i<nr; ++i){
 	rid++;
 	var newdiv = document.createElement("div");
