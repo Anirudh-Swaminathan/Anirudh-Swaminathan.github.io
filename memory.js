@@ -1,25 +1,31 @@
-//alert('Hidden');
 var nr = 4;
 var nc = 4;
 var arr = [];
 var id=0;
 var rid = 0;
-//var mark=[];
 for(var i=0; i<nr*nc/2; ++i){
 	arr.push(i+1);
 	arr.push(i+1);
 }
-/*
-for(var i=0; i<nr*nc; ++i){
-	mark.push(0);
-}
-*/
+
+//Introducing the scores module to this game
+//Flipping a pair consists of 1 move.
+var score = 10;
+//The tolerance limit is 10 moves. After 10 moves,for each 
+//move the user makes, the score decreases by 1 point.
+//The user loses if the point reaches 0, but the board is not
+//completely taken out.
+var moves = 0;
+var clos = 0;
+var finish = false;
+
 for(var i=0; i<15; ++i){
 	var a = Math.floor(Math.random()*nc*nr);
 	var x = arr[i];
 	arr[i] = arr[a];
 	arr[a] = x;
 }
+
 //alert('Arr is '+arr);
 for(var i=0; i<nr; ++i){
 	rid++;
@@ -38,6 +44,7 @@ for(var i=0; i<nr; ++i){
 		ele.innerHTML = '';
 	}
 }
+
 //onclick for the whole class
 var x = document.getElementsByClassName("column");
 var prev,now;
@@ -46,18 +53,27 @@ var susp = false;
 //alert(""+x);
 var len = x.length;
 for(var i=0; i<len; ++i){
-		x[i].onclick = function(){
-			if(this.getAttribute('clicka') === 'true'){
+	x[i].onclick = function(){
+		if(this.getAttribute('clicka') === 'true' && !finish){
 			
 			if(susp === false){
 				//alert('You clicked '+x[i].id+' Its parents id is '+x[i].parent.id+'\n innerHTML is '+x[i].innerHTML);
 				this.innerHTML = this.getAttribute('data-inter');
-				this.style.background = "blue";
+				this.style.background = "#13e6db";
 				if(!isOpen){
 					prev = this;
 					isOpen = true;
 				}
 				else if(this.id != prev.id){
+					//updating the number of moves.
+					moves++;
+					if(moves>(nr*nc/2)+2) score--;
+					if(score === 0){
+						alert('Game Over!!!');
+						finish = true;
+					}
+					if(score<=3 && score != 0) alert('You have '+score+' moves left');
+					
 					now = this;
 					isOpen = false;
 					susp = true;
@@ -72,6 +88,8 @@ for(var i=0; i<len; ++i){
 					}
 					else{
 						//susp  = true;
+						clos++;
+						
 						setTimeout(function(){prev.setAttribute('clicka',false);
 						now.setAttribute('clicka',false); prev.innerHTML = ''; now.innerHTML = '';
 						prev.style.backgroundColor = "yellow";
@@ -82,19 +100,23 @@ for(var i=0; i<len; ++i){
 				else{
 					alert('Please click a different tile from the one you just clicked');
 				}
-				
-				//alert('Hi You clicked '+this.id+"\nThe parents id is "+this.parentNode.id+'\n Hidden data is '+this.getAttribute('data-inter'));
-				//alert('isOpen is '+isOpen+'\n prev is '+prev+'\nNow is '+now+'\nsusp is now'+susp+'\nclick status is '+this.getAttribute('clicka'));
 			}
 			else{
 				alert('Suspended');
 			}
 		}
+		//Coding for the scores
+		if(!finish && clos === nr*nc/2) finish = true;
+		
+		if(!finish){
+			var docu = document.getElementById("updateScore");
+			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+"<br/>Tiles Closed: "+clos*2;
 		}
+		else{
+			var docu = document.getElementById("updateScore");
+			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+ score;
+			if(score !=0) alert('Congratulations on finishing the game!!\nYour score is '+score);
+		}
+	}
 }
-function clearD(){
-	prev.innerHTML = 'X';
-	now.innerHTML = 'X';
-	susp = false;
-	//alert('Done');
-}
+
