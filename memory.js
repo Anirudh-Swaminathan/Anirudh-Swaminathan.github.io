@@ -116,6 +116,10 @@ for(var i=0; i<len; ++i){
 			var docu = document.getElementById("updateScore");
 			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+ score;
 			if(score !=0) alert('Congratulations on finishing the game!!\nYour score is '+score);
+			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+ score+"<br/><a href='' id='try_again'>Wanna Try again?</a>";
+			document.getElementById('try_again').onclick = function(){
+				location.reload();
+			}
 		}
 	}
 }
