@@ -2,7 +2,7 @@ body{
 	background:url('index_bg.jpg');
 	background-repeat:no-repeat;
 	background-attachment:fixed;
-	background-size:100% 100%;
+	background-size: cover;
 }
 
 .header h2{
