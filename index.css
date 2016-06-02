@@ -19,9 +19,12 @@ body{
 .header{
 	/*
 	position:relative;
-	
 	margin-top:15%;
 	margin-left:33%;
+	background-color:#000000;
+	display: inline-block;
+	color:white;
+	opacity:0.7;
 	*/
 	position:absolute;
 	top:50%;
@@ -63,19 +66,12 @@ a:hover{
 	color:#7af5fc;
 	text-shadow: 3px 3px 0px black;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 32cf8892e5721d64583ea7239e26b71fa7938725
 @media (min-width: 300px) {
     html {
         background: url(index_bg.jpg) no-repeat center center fixed; 
         background-size: cover;
         min-height: 100%;
     }
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> 32cf8892e5721d64583ea7239e26b71fa7938725
