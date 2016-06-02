@@ -36,3 +36,12 @@ span{
 #updateScore{
 	background-color:#b4fa92;
 }
+a{
+	text-decoration:none;
+	color:#333300;
+}
+a:hover{
+	text-decoration:none;
+	color:#0d157b;
+	text-shadow: 1px 1px 0px black;
+}

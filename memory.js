@@ -116,7 +116,7 @@ for(var i=0; i<len; ++i){
 			var docu = document.getElementById("updateScore");
 			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+ score;
 			if(score !=0) alert('Congratulations on finishing the game!!\nYour score is '+score);
-			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+ score+"<br/><a href='' id='try_again'>Wanna Try again?</a>";
+			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+ score+"<br/>Click <a href='' id='try_again'>HERE</a> to try again";
 			document.getElementById('try_again').onclick = function(){
 				location.reload();
 			}

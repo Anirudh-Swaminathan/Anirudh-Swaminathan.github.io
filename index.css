@@ -1,0 +1,55 @@
+body{
+	background:url('index_bg.jpg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-size:100% 100%;
+}
+
+.header h2{
+	text-align:center;
+	font-family:Arial;
+	color:white;
+	font-size:1.5625em;
+	font-weight:lighter;
+}
+
+.header{
+	position:relative;
+	margin-top:15%;
+	margin-left:33%;
+	background-color:#000000;
+	display: inline-block;
+	color:white;
+	opacity:0.7;
+}
+#inner{
+	opacity:1.0;
+	z-index:3;
+}
+.header h4{
+	text-align:center;
+	font-family:Arial;
+	color:white;
+	font-weight:lighter;
+}
+.header p{
+	text-align:center;
+	font-family:Arial;
+	color:white;
+	font-weight:lighter;
+}
+#center_me{
+	text-align:center;
+}
+#cursor_sim{
+	color:red;
+}
+a{
+	text-decoration:none;
+	color:#f0ff37;
+}
+a:hover{
+	text-decoration:none;
+	color:#7af5fc;
+	text-shadow: 3px 3px 0px black;
+}
