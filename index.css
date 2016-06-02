@@ -1,8 +1,11 @@
 body{
+	/*
 	background:url('index_bg.jpg');
 	background-repeat:no-repeat;
 	background-attachment:fixed;
 	background-size: cover;
+	*/
+	min-height:100%;
 }
 
 .header h2{
@@ -14,13 +17,20 @@ body{
 }
 
 .header{
+	/*
 	position:relative;
+	
 	margin-top:15%;
 	margin-left:33%;
+	*/
+	position:absolute;
+	top:50%;
+	left:50%;
 	background-color:#000000;
 	display: inline-block;
 	color:white;
 	opacity:0.7;
+	margin: -6.25em 0 0 -11em;
 }
 #inner{
 	opacity:1.0;
@@ -52,4 +62,11 @@ a:hover{
 	text-decoration:none;
 	color:#7af5fc;
 	text-shadow: 3px 3px 0px black;
+}
+@media (min-width: 300px) {
+    html {
+        background: url(index_bg.jpg) no-repeat center center fixed; 
+        background-size: cover;
+        min-height: 100%;
+    }
 }
