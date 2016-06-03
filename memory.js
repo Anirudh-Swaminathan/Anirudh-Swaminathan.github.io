@@ -9,11 +9,15 @@ function start(){
 var arr = [];
 var id=0;
 var rid = 0;
-for(var i=0; i<nr*nc/2; ++i){
+
+var arr = ['barca.png','barca.png','bayern.png','bayern.png','chelsea.png','chelsea.png','dortmund.png','dortmund.png',
+			'liverpool.png','liverpool.png','manu.png','manu.png','real_madrid.png','real_madrid.png','totten.png','totten.png'];
+/*
+for(var i=0; i<15; ++i){
 	arr.push(i+1);
 	arr.push(i+1);
 }
-
+*/
 //Introducing the scores module to this game
 //Flipping a pair consists of 1 move.
 score = 10;
@@ -64,8 +68,10 @@ for(var i=0; i<len; ++i){
 			
 			if(susp === false){
 				//alert('You clicked '+x[i].id+' Its parents id is '+x[i].parent.id+'\n innerHTML is '+x[i].innerHTML);
-				this.innerHTML = this.getAttribute('data-inter');
-				this.style.background = "#13e6db";
+				//this.innerHTML = this.getAttribute('data-inter');
+				//this.style.background = "#13e6db";
+				this.style.background = "url("+this.getAttribute('data-inter')+") no-repeat";
+				this.style.backgroundSize = 'cover';
 				if(!isOpen){
 					prev = this;
 					isOpen = true;
@@ -84,7 +90,7 @@ for(var i=0; i<len; ++i){
 					now = this;
 					isOpen = false;
 					susp = true;
-					if(prev.innerHTML != now.innerHTML){
+					if(prev.getAttribute('data-inter') != now.getAttribute('data-inter')){
 						
 						setTimeout(function(){prev.innerHTML = '';
 						now.innerHTML = ''; 
@@ -109,7 +115,7 @@ for(var i=0; i<len; ++i){
 				}
 			}
 			else{
-				alert('Suspended');
+				alert('Don\'t click so fast!');
 			}
 		}
 		//Coding for the scores

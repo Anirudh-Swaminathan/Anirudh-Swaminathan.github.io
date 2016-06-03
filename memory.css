@@ -7,8 +7,8 @@
 	display:inline-block;
 	/*background-color:blue;*/
 	margin:0.3125em;
-	width: 3.75em;
-	height: 3.75em;
+	width: 6.25em;
+	height: 6.25em;
 	border-radius:10%;
 	text-align:center;
 	vertical-align:middle;
@@ -23,7 +23,7 @@
 }
 #scores{
 	position:relative;
-	margin-top:15.625em;
+	margin-top:25em;
 	width:20.625em;
 	border-bottom:1px dashed black;
 	border-top:1px solid black;
