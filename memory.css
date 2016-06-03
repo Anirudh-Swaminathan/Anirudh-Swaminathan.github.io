@@ -1,18 +1,18 @@
 .row{
-	margin:5px;
+	margin:0.3125em;
 	display:block;
 	/*background-color:yellow;*/
 }
 .column{
 	display:inline-block;
 	/*background-color:blue;*/
-	margin:5px;
-	width: 60px;
-	height: 60px;
+	margin:0.3125em;
+	width: 3.75em;
+	height: 3.75em;
 	border-radius:10%;
 	text-align:center;
 	vertical-align:middle;
-	line-height:60px;
+	line-height:3.75em;
 	background:url(spider.jpg) no-repeat;
 	background-size: cover;
 }
@@ -23,9 +23,12 @@
 }
 #scores{
 	position:relative;
-	margin-top:250px;
-	width:330px;
-	border:1px dashed black;
+	margin-top:15.625em;
+	width:20.625em;
+	border-bottom:1px dashed black;
+	border-top:1px solid black;
+	border-left:1px solid black;
+	border-right:1px solid black;
 }
 span{
 	font-family:Verdana;
@@ -44,4 +47,59 @@ a:hover{
 	text-decoration:none;
 	color:#0d157b;
 	text-shadow: 1px 1px 0px black;
+}
+.time{
+	width:4.6875em;
+	height:4.6875em;
+	display:inline-block;
+	background-color:#00BFFF;
+	margin-bottom:5px;
+	border-radius:15%;
+	text-align:center;
+	vertical-align:middle;
+	line-height:25px;
+}
+.time
+{
+  left: 0px;
+  position:relative;
+  -webkit-animation:SlideDown 3s;
+  animation:SlideDown 3s;
+}
+@-webkit-keyframes SlideDown {
+  from {left:-100%;}
+  to {left:0px;}
+}
+@-moz-keyframes SlideDown {
+  from {left:-100%;}
+  to {left:0px;}
+}
+@-o-keyframes SlideDown {
+  from {left:-100%;}
+  to {left:0px;}
+}
+@keyframes SlideDown {
+  from {left:-100%;}
+  to {left:0px;}
+}
+#container{
+	position:relative;
+	top:0em;
+	left:1em;
+}
+#choose{
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px dashed black;
+	border-top:1px dashed black;
+	width:20.625em;
+	background-color:#f4ff1a;
+}
+#time_chek{
+	border-top:1px dashed black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom:1px solid black;
+	width:20.625em;
+	background-color:#b812bc;
 }

@@ -11,14 +11,38 @@
 	</div>
 	<br/> <br/>
 	<br/> <br/>
+	<div id="Anirudh">
 	<div id="scores">
 		<span>LEGEND</span>
 		<hr/>
 		<div id="updateScore">
 		</div>
 	</div>
+	<div id="choose">
+		<input type="radio" name="difficulty" value="easy" id="easyBtn"checked>Easy</input>
+		<input type="radio" name="difficulty" value="medium" id="medBtn">Medium</input>
+		<input type="radio" name="difficulty" value="hard" id="hardBtn">Hard</input>
+		<br/>
+		<input type="radio" name="gridSize" value="small" id="smallG">2*3</input>
+		<input type="radio" name="gridSize" value="medium" id="medG">3*4</input>
+		<input type="radio" name="gridSize" value="large" id="largeG" checked>4*4</input>
+		<br/>
+		<button id="start" value="start">Start</button>
+	</div>
+	<div id="time_chek">
+		<h5 id = "timLeft">Time Left for you is </h5>
+		<div id="container">
+		<div class="time" id="minu">
+		</div>
+		<div class="time" id="seco">
+		</div>
+	</div>
+	</div>
+	</div>
 	
 	<script src="memory.js">
+	</script>
+	<script src = "memory_time.js">
 	</script>
 </body>
 </html>

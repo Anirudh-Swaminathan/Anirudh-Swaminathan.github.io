@@ -1,5 +1,11 @@
 var nr = 4;
 var nc = 4;
+var finish = false;
+var score = 0;
+var moves;
+var max_moves = 10;
+
+function start(){
 var arr = [];
 var id=0;
 var rid = 0;
@@ -10,16 +16,16 @@ for(var i=0; i<nr*nc/2; ++i){
 
 //Introducing the scores module to this game
 //Flipping a pair consists of 1 move.
-var score = 10;
+score = 10;
 //The tolerance limit is 10 moves. After 10 moves,for each 
 //move the user makes, the score decreases by 1 point.
 //The user loses if the point reaches 0, but the board is not
 //completely taken out.
-var moves = 0;
+moves = 0;
 var clos = 0;
-var finish = false;
 
-for(var i=0; i<15; ++i){
+
+for(var i=0; i<nc*nr-1; ++i){
 	var a = Math.floor(Math.random()*nc*nr);
 	var x = arr[i];
 	arr[i] = arr[a];
@@ -67,10 +73,11 @@ for(var i=0; i<len; ++i){
 				else if(this.id != prev.id){
 					//updating the number of moves.
 					moves++;
-					if(moves>(nr*nc/2)+2) score--;
+					if(moves>max_moves) score--;
 					if(score === 0){
 						alert('Game Over!!!');
 						finish = true;
+						ended = true;
 					}
 					if(score<=3 && score != 0) alert('You have '+score+' moves left');
 					
@@ -106,21 +113,93 @@ for(var i=0; i<len; ++i){
 			}
 		}
 		//Coding for the scores
-		if(!finish && clos === nr*nc/2) finish = true;
+		if(!finish && clos === nr*nc/2) {finish = true; ended = true;}
 		
 		if(!finish){
 			var docu = document.getElementById("updateScore");
-			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+"<br/>Tiles Closed: "+clos*2;
+			var moveItAni = max_moves+10-moves;
+			docu.innerHTML = "Moves made: "+moves+"<br/>Moves Left: "+moveItAni+"<br/>Score: "+"<br/>Tiles Closed: "+clos*2;
 		}
-		else{
+		else if(finish && clos === nr*nc/2){
 			var docu = document.getElementById("updateScore");
-			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+ score;
+			var moveItAni = max_moves+10-moves;
+			docu.innerHTML = "Moves made: "+moves+"<br/>Moves Left: "+moveItAni+"<br/>Score: "+ score;
 			if(score !=0) alert('Congratulations on finishing the game!!\nYour score is '+score);
 			docu.innerHTML = "Moves: "+moves+"<br/>Score: "+ score+"<br/>Click <a href='' id='try_again'>HERE</a> to try again";
 			document.getElementById('try_again').onclick = function(){
 				location.reload();
 			}
 		}
+		else{
+			alert('Sorry, TIME\'S UP. Better luck next time');
+			var docu = document.getElementById("updateScore");
+			score = 0;
+			var moveItAni = max_moves+10-moves;
+			docu.innerHTML = "Moves: "+moves+"<br/>Moves Left: "+moveItAni+"<br/>Score: "+ score+"<br/>Click <a href='' id='try_again'>HERE</a> to try again";
+			document.getElementById('try_again').onclick = function(){
+				location.reload();
+			}
+		}
 	}
+}
+}
+
+document.getElementById('start').onclick = function(){
+	
+	var grid = document.getElementsByName('gridSize');
+	var sizeG;
+	for(var i=0; i < grid.length; ++i){
+		if(grid[i].checked){
+			sizeG = grid[i].value;
+			break;
+		}
+	}
+	
+	if(sizeG == 'large'){
+		nr = 4;
+		nc = 4;
+		max_moves = 10;
+	}
+	else if(sizeG == 'medium'){
+		nr = 3;
+		nc = 4;
+		max_moves = 6;
+	}
+	else{
+		nr = 2;
+		nc = 3;
+		max_moves = 2;
+	}
+	
+	start();
+	var diffi = document.getElementsByName('difficulty');
+	var diff_val;
+	for(var i = 0; i < diffi.length; i++){
+		if(diffi[i].checked){
+			diff_val = diffi[i].value;
+			//alert(''+diff_val+typeof(diff_val));
+			break;
+		}
+	}
+	
+	
+	//alert(''+diff_val+typeof(diff_val));
+	if(diff_val == 'easy'){
+		if(sizeG == 'large') timeSet = 90000;
+		else if (sizeG == 'medium') timeSet = 60000;
+		else timeSet = 45000;
+	}
+	else if(diff_val == 'medium'){
+		if(sizeG == 'large') timeSet = 60000;
+		else if(sizeG == 'medium') timeSet = 45000;
+		else timeSet = 30000;
+	}
+	else{
+		if(sizeG == 'large') timeSet = 45000;
+		else if(sizeG == 'medium') timeSet = 30000;
+		else timeSet = 15000;
+	}
+	startIt();
+	document.getElementById('start').disabled = true;
 }
 
