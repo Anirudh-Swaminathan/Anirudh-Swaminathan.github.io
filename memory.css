@@ -103,8 +103,15 @@ a:hover{
 	width:20.625em;
 	background-color:#b812bc;
 }
+/*
+@media only screen 
+and (max-width : 320px) {
+ Styles 
+}
+*/
 /*Adding support for mobile devices*/
-@media (min-width:300px){
+@media only screen 
+and (max-width : 450px) {
 	.column{
 	display:inline-block;
 	/*background-color:blue;*/
