@@ -104,7 +104,7 @@ a:hover{
 	background-color:#b812bc;
 }
 /*Adding support for mobile devices*/
-@media (max-width:320px){
+@media (min-width:300px){
 	.column{
 	display:inline-block;
 	/*background-color:blue;*/
