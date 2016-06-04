@@ -1,10 +1,11 @@
+//Number of rows and columns
 var nr = 4;
 var nc = 4;
 var finish = false;
 var score = 0;
 var moves;
 var max_moves = 10;
-
+//The function that plays the game
 function start(){
 var arr = [];
 var id=0;
@@ -28,7 +29,7 @@ score = 10;
 moves = 0;
 var clos = 0;
 
-
+//Creating array of random images
 for(var i=0; i<nc*nr-1; ++i){
 	var a = Math.floor(Math.random()*nc*nr);
 	var x = arr[i];
@@ -37,6 +38,7 @@ for(var i=0; i<nc*nr-1; ++i){
 }
 
 //alert('Arr is '+arr);
+//Populating tiles with random images
 for(var i=0; i<nr; ++i){
 	rid++;
 	var newdiv = document.createElement("div");
@@ -90,6 +92,7 @@ for(var i=0; i<len; ++i){
 					now = this;
 					isOpen = false;
 					susp = true;
+					//Unequal tiles
 					if(prev.getAttribute('data-inter') != now.getAttribute('data-inter')){
 						
 						setTimeout(function(){prev.innerHTML = '';
@@ -99,6 +102,7 @@ for(var i=0; i<len; ++i){
 						now.style.background='url(spider.jpg) no-repeat'; 
 						now.style.backgroundSize='cover'; susp = false;},800);
 					}
+					//equal tiles
 					else{
 						//susp  = true;
 						clos++;
@@ -110,10 +114,12 @@ for(var i=0; i<len; ++i){
 						susp = false;},800);
 					}
 				}
+				//Same tile clicked
 				else{
 					alert('Please click a different tile from the one you just clicked');
 				}
 			}
+			//The user is clicking too fast to see the tile he just opened
 			else{
 				alert('Don\'t click so fast!');
 			}
@@ -151,7 +157,7 @@ for(var i=0; i<len; ++i){
 }
 
 document.getElementById('start').onclick = function(){
-	
+	//getting the grid size
 	var grid = document.getElementsByName('gridSize');
 	var sizeG;
 	for(var i=0; i < grid.length; ++i){
@@ -178,6 +184,7 @@ document.getElementById('start').onclick = function(){
 	}
 	
 	start();
+	//getting the difficulty
 	var diffi = document.getElementsByName('difficulty');
 	var diff_val;
 	for(var i = 0; i < diffi.length; i++){
