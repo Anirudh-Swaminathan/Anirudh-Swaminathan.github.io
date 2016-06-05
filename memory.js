@@ -53,7 +53,7 @@ for(var i=0; i<nr; ++i){
 		ele.setAttribute('id',id.toString());
 		ele.setAttribute('data-inter',arr[id-1].toString());
 		ele.setAttribute('clicka',true);
-		ele.style.background = "url("+arr[id-1].toString()+") no-repeat";
+		ele.style.background = "url("+ele.getAttribute('data-inter')+") no-repeat";
 		ele.style.backgroundSize = 'cover';
 		ele.style.background = "url(spider.jpg) no-repeat";
 		ele.style.backgroundSize = 'cover';
