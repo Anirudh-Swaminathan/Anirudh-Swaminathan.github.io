@@ -13,6 +13,10 @@ var rid = 0;
 
 var arr = ['barca.png','barca.png','bayern.png','bayern.png','chelsea.png','chelsea.png','dortmund.png','dortmund.png',
 			'liverpool.png','liverpool.png','manu.png','manu.png','real_madrid.png','real_madrid.png','totten.png','totten.png'];
+for(var i=0; i<arr.length; ++i){
+	var img = new Image();
+	img.src = arr[i];
+}
 /*
 for(var i=0; i<15; ++i){
 	arr.push(i+1);
