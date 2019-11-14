@@ -1,5 +1,5 @@
 //the changing credentials effect by Anirudh
-var arr = ["C++","C","Python","Java","Android","Javascript","PHP","HTML","CSS"];//,"Flask","NodeJS"
+var arr = ["C++","C","Python","Java","Android"]; //,"Javascript","PHP","HTML","CSS"];//,"Flask","NodeJS"
 var i=0;
 var j=0;
 var inc=1;
